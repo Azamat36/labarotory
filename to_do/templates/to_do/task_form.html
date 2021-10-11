@@ -1,0 +1,17 @@
+{% extends 'to_do/base.html' %}
+{% block content %}
+
+<div class="header-bar" >
+    <a href="{% url 'tasks' %}">&#8592; Назад</a>
+    <h2 style="margin-top: 20px; margin-right: 190px; ">Новая задача</h2>
+</div>
+
+<div class="card-body">
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="button" type="submit" value="Создать">
+</form>
+</div>
+
+{% endblock content %}

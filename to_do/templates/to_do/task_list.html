@@ -1,0 +1,53 @@
+
+{% extends 'to_do/base.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Список задач</h1>
+    </div>
+
+
+</div>
+
+<div id="search-add-wrapper" class="search">
+<form method="GET" style="margin-top: 20px; display: flex;">
+    <input style="width: 300px;" type="text" name="search-area" value="{{search}}">
+    <input  class="button" type="submit" value="Поиск задачи">
+</form>
+<a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+</div>
+
+
+<div class="task-items-wrapper">
+    {% for task in tasks %}
+    <div class="task-wrapper">
+        {% if task.status == 'YES' %}
+            <div class="task-title">
+                <div class="task-complete-icon"></div>
+                <i><s><a href="{% url 'task-edit' task.id %}">{{task}}</a></s></i>
+            </div>
+            <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+            {% elif task.status == 'PL' %}
+            <div class="task-title">
+                <div class="task-incomplete-icon"></div>
+                <a href="{% url 'task-edit' task.id %}">{{task}}</a>
+            </div>
+            <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+        {% elif task.status == 'NOT' %}
+            <div class="task-title">
+                <div class="task-cancelled-icon"></div>
+                <a href="{% url 'task-edit' task.id %}">{{task}}</a>
+            </div>
+            <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+
+        {% endif %}
+
+        </div>
+        {% empty %}
+        <h3 style="margin-left: 15px;">Нет задач</h3>
+        {% endfor %}
+</div>
+
+
+{% endblock content %}
