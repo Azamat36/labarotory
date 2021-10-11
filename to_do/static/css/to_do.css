@@ -1,6 +1,6 @@
 body {
        background-color: #FAFAFA;
-       font-family: 'Oswald', sans-serif;font-family;
+       font-family: 'Oswald', sans-serif;
        padding-top: 50px;
         }
 
@@ -10,8 +10,13 @@ a, p {
         color: #4b5156
 }
 
+.zema{
+        text-align: center;
+        font-size: 20px;
+}
+
 .container{
-           max-width: 550px;
+           max-width: 1280px;
            margin: auto;
            background-color: #fff;
            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
@@ -25,7 +30,7 @@ a, p {
             color: #fff;
             padding: 10px;
             border-radius: 5px 5px 0 0;
-            background: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(5,0,255,1) 35%, rgba(7,4,219,1) 100%);
+            background: pink;
 
 }
 
@@ -82,10 +87,10 @@ a, p {
 
 .delete-link{
             text-decoration: none;
-            font-weight: 900;
+            
             color: #E52020;
-            font-size: 50px;
-            line-height: 0;
+            font-size: 25px;
+            
 }
 
 #search-add-wrapper {

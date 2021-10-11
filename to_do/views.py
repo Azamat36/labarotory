@@ -9,14 +9,7 @@ class TaskList(ListView):
     model = Task
     context_object_name = 'tasks'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        search = self.request.GET.get('search-area') or ''
-        if search:
-            context['tasks']= context['tasks'].filter(title__icontains=search)
-
-        context['search'] = search
-        return context
+    
 
 class TaskDetail(DetailView):
     model = Task
